@@ -1,142 +1,119 @@
-// =====================================================
-// MADHANADEVA D — PORTFOLIO JS  v2
-// =====================================================
-
-// Navbar scroll effect
+// ── Navbar scroll ──
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 20);
 });
 
-// Mobile Menu Toggle
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const navLinks = document.getElementById('navLinks');
-
-mobileMenuBtn.addEventListener('click', () => {
+// ── Mobile hamburger ──
+const hamburger = document.getElementById('hamburger');
+const navLinks  = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
     navLinks.classList.toggle('active');
-    mobileMenuBtn.classList.toggle('open');
 });
-
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
+document.querySelectorAll('.nav-link').forEach(l => {
+    l.addEventListener('click', () => {
+        hamburger.classList.remove('open');
         navLinks.classList.remove('active');
-        mobileMenuBtn.classList.remove('open');
     });
 });
 
-// Hero floating particles
-function initParticles() {
-    const container = document.getElementById('heroParticles');
-    if (!container) return;
-    const count = 24;
-    for (let i = 0; i < count; i++) {
+// ── Floating particles ──
+(function initParticles() {
+    const el = document.getElementById('particles');
+    if (!el) return;
+    const colors = ['rgba(0,212,255,.45)', 'rgba(124,58,237,.35)', 'rgba(16,185,129,.35)'];
+    for (let i = 0; i < 26; i++) {
         const p = document.createElement('div');
-        const size = Math.random() * 2.5 + 1;
-        const x = Math.random() * 100;
-        const y = Math.random() * 100;
-        const duration = Math.random() * 14 + 10;
-        const delay = Math.random() * 8;
-        const colors = ['rgba(0,212,255,0.45)', 'rgba(124,58,237,0.35)', 'rgba(16,185,129,0.35)'];
-        const color = colors[Math.floor(Math.random() * colors.length)];
+        const s = Math.random() * 2.5 + 1;
         p.style.cssText = `
-            position:absolute; width:${size}px; height:${size}px;
-            background:${color}; border-radius:50%;
-            left:${x}%; top:${y}%;
-            animation:floatUp ${duration}s ${delay}s ease-in-out infinite;
+            position:absolute;
+            width:${s}px;height:${s}px;
+            background:${colors[i % 3]};
+            border-radius:50%;
+            left:${Math.random()*100}%;
+            top:${Math.random()*100}%;
+            animation:fup ${Math.random()*14+9}s ${Math.random()*8}s ease-in-out infinite;
             pointer-events:none;
         `;
-        container.appendChild(p);
+        el.appendChild(p);
     }
-    if (!document.getElementById('particleStyle')) {
-        const style = document.createElement('style');
-        style.id = 'particleStyle';
-        style.textContent = `
-            @keyframes floatUp {
-                0%,100%{ transform:translateY(0) scale(1); opacity:0.4; }
-                50%{ transform:translateY(-28px) scale(1.25); opacity:0.75; }
-            }
-        `;
-        document.head.appendChild(style);
-    }
-}
-initParticles();
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fup {
+            0%,100%{transform:translateY(0) scale(1);opacity:.4}
+            50%{transform:translateY(-28px) scale(1.2);opacity:.75}
+        }
+    `;
+    document.head.appendChild(style);
+})();
 
-// Scroll Reveal via IntersectionObserver
-const revealEls = document.querySelectorAll('.reveal, .reveal-fast');
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('active');
-    });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+// ── Scroll reveal (IntersectionObserver) ──
+const revealAll = document.querySelectorAll('.reveal, .reveal-fast');
+const revObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+}, { threshold: 0.07, rootMargin: '0px 0px -36px 0px' });
+revealAll.forEach(el => revObs.observe(el));
 
-revealEls.forEach(el => revealObserver.observe(el));
-
-// Trigger hero reveals on load
+// trigger hero immediately after load
 window.addEventListener('load', () => {
     document.querySelectorAll('.hero .reveal-fast').forEach(el => {
-        setTimeout(() => el.classList.add('active'), 120);
+        setTimeout(() => el.classList.add('active'), 100);
     });
 });
 
-// Active nav link highlighting on scroll
+// ── Active nav on scroll ──
 const sections = document.querySelectorAll('section[id]');
 window.addEventListener('scroll', () => {
-    let current = '';
+    let cur = '';
     sections.forEach(s => {
-        if (window.pageYOffset >= s.offsetTop - 130) current = s.getAttribute('id');
+        if (window.pageYOffset >= s.offsetTop - 140) cur = s.id;
     });
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.toggle('active-link', link.getAttribute('href') === '#' + current);
+    document.querySelectorAll('.nav-link').forEach(l => {
+        l.classList.toggle('active-link', l.getAttribute('href') === '#' + cur);
     });
-});
+}, { passive: true });
 
-// Scroll to top
-const scrollTopBtn = document.getElementById('scrollTop');
+// ── Scroll-to-top ──
+const topBtn = document.getElementById('scrollTop');
 window.addEventListener('scroll', () => {
-    scrollTopBtn.classList.toggle('active', window.pageYOffset > 400);
-});
-scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+    topBtn.classList.toggle('active', window.pageYOffset > 400);
+}, { passive: true });
+topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-// Form submission
-document.getElementById('contactForm').addEventListener('submit', (e) => {
+// ── Contact form ──
+document.getElementById('contactForm').addEventListener('submit', e => {
     e.preventDefault();
-    const form = e.target;
-    const btn = document.getElementById('submitBtn');
-    const btnText = btn.querySelector('.btn-text');
-    const btnIcon = btn.querySelector('.btn-icon');
+    const form   = e.target;
+    const btn    = document.getElementById('submitBtn');
+    const txt    = btn.querySelector('.btn-text');
+    const ico    = btn.querySelector('.btn-icon');
 
     btn.disabled = true;
-    btnText.textContent = 'Sending...';
-    btnIcon.className = 'fas fa-circle-notch fa-spin btn-icon';
+    txt.textContent = 'Sending…';
+    ico.className   = 'fas fa-circle-notch fa-spin btn-icon';
 
-    fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        mode: 'no-cors'
-    });
+    fetch(form.action, { method: 'POST', body: new FormData(form), mode: 'no-cors' });
 
     setTimeout(() => {
         btn.classList.add('success');
-        btnText.textContent = 'Message Sent!';
-        btnIcon.className = 'fas fa-check-circle btn-icon';
+        txt.textContent = 'Message Sent!';
+        ico.className   = 'fas fa-check-circle btn-icon';
         form.reset();
-
         setTimeout(() => {
             btn.classList.remove('success');
-            btn.disabled = false;
-            btnText.textContent = 'Send Message';
-            btnIcon.className = 'fas fa-paper-plane btn-icon';
+            btn.disabled    = false;
+            txt.textContent = 'Send Message';
+            ico.className   = 'fas fa-paper-plane btn-icon';
         }, 3000);
     }, 900);
 });
 
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+// ── Smooth anchor scroll ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const t = document.querySelector(this.getAttribute('href'));
+        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 });

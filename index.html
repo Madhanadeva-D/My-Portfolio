@@ -5,472 +5,519 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Madhanadeva D — AI/ML Developer & Data Analyst</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0f1e'/%3E%3Ctext x='50' y='68' font-family='monospace' font-size='52' font-weight='bold' fill='%2300d4ff' text-anchor='middle'%3EMD%3C/text%3E%3C/svg%3E">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- ── NAV ── -->
     <nav class="nav-bar" id="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-bracket">[</span>MD<span class="logo-bracket">]</span>
-            </div>
+            <div class="nav-logo"><span class="lb">[</span>MD<span class="lb">]</span></div>
             <div class="nav-links" id="navLinks">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#about"      class="nav-link">About</a>
+                <a href="#education"  class="nav-link">Education</a>
+                <a href="#projects"   class="nav-link">Projects</a>
                 <a href="#experience" class="nav-link">Experience</a>
-                <a href="#tech" class="nav-link">Stack</a>
-                <a href="#contact" class="nav-link contact-cta">Contact</a>
+                <a href="#tech"       class="nav-link">Stack</a>
+                <a href="#contact"    class="nav-link cta-link">Contact</a>
             </div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+            <button class="hamburger" id="hamburger" aria-label="Menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ══════════ HERO ══════════ -->
     <section class="hero" id="home">
-        <div class="hero-bg-grid"></div>
-        <div class="hero-particles" id="heroParticles"></div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge reveal-fast">
+        <div class="hero-grid-bg"></div>
+        <div class="hero-particles" id="particles"></div>
+
+        <div class="hero-wrap">
+            <!-- LEFT -->
+            <div class="hero-left">
+                <div class="badge reveal-fast">
                     <span class="badge-dot"></span>
                     Available for opportunities
                 </div>
-                <h1 class="hero-title reveal-fast">
-                    MADHANADEVA <span class="accent-d">D</span>
+
+                <!-- Name on ONE straight line, fluid font -->
+                <h1 class="hero-name reveal-fast">
+                    MADHANADEVA <span class="name-d">D</span>
                 </h1>
+
                 <div class="hero-roles reveal-fast">
-                    <span class="role-tag">AI/ML Developer</span>
-                    <span class="role-divider">×</span>
-                    <span class="role-tag">Data Analyst</span>
+                    <span class="role-pill">AI / ML Developer</span>
+                    <span class="role-x">×</span>
+                    <span class="role-pill">Data Analyst</span>
                 </div>
+
                 <p class="hero-desc reveal-fast">
                     Building intelligent systems at the intersection of
-                    <em>machine learning</em>, <em>generative AI</em>, and <em>data science</em>.
+                    <em>Machine Learning</em>, <em>Generative AI</em>, and <em>Data Analyst</em>.
                 </p>
-                <div class="cta-buttons reveal-fast">
-                    <a href="Doc/MADHANADEVA_D_AI_DS.pdf" download class="btn btn-primary">
-                        <i class="fas fa-download"></i>
-                        <span>Download CV</span>
+
+                <div class="hero-btns reveal-fast">
+                    <div class="cv-btn-wrap">
+                        <button class="btn btn-solid cv-main-btn">
+                            <i class="fas fa-download"></i> Download CV
+                        </button>
+                        <div class="cv-dropdown">
+                            <a href="Doc/MADHANADEVA_D_AI_DS.pdf" download class="cv-option">
+                                <i class="fas fa-download"></i>
+                                <span>Download</span>
+                            </a>
+                            <a href="https://drive.google.com/file/d/1dbqfrMZmLZgyKEARSKRFuhr4rtRFJkk5/view?usp=sharing" target="_blank" class="cv-option">
+                                <i class="fab fa-google-drive"></i>
+                                <span>View on Drive</span>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-ghost">
+                        Get In Touch <i class="fas fa-arrow-right"></i>
                     </a>
-                    <a href="#contact" class="btn btn-outline">
-                        <span>Get In Touch</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="hero-visual reveal-fast">
-                <div class="code-window">
-                    <div class="code-header">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
-                        <span class="code-filename">madhanadeva.py</span>
+                </div>            </div>
+
+            <!-- RIGHT: code window -->
+            <div class="hero-right reveal-fast">
+                <div class="code-win">
+                    <div class="code-bar">
+                        <span class="cd r"></span>
+                        <span class="cd y"></span>
+                        <span class="cd g"></span>
+                        <span class="code-file">madhanadeva.py</span>
                     </div>
                     <div class="code-body">
-                        <div class="code-line"><span class="kw">from</span> <span class="mod">ai</span> <span class="kw">import</span> <span class="cls">Developer</span></div>
-                        <div class="code-line"></div>
-                        <div class="code-line"><span class="fn">class</span> <span class="cls">Madhanadeva</span><span class="punc">(</span><span class="cls">Developer</span><span class="punc">):</span></div>
-                        <div class="code-line indent"><span class="fn">def</span> <span class="method">__init__</span><span class="punc">(self):</span></div>
-                        <div class="code-line indent2"><span class="var">self</span><span class="punc">.</span><span class="prop">skills</span> <span class="op">=</span> <span class="punc">[</span></div>
-                        <div class="code-line indent3"><span class="str">"LLMs"</span><span class="punc">,</span> <span class="str">"RAG"</span><span class="punc">,</span> <span class="str">"LangChain"</span><span class="punc">,</span></div>
-                        <div class="code-line indent3"><span class="str">"TensorFlow"</span><span class="punc">,</span> <span class="str">"Power BI"</span></div>
-                        <div class="code-line indent2"><span class="punc">]</span></div>
-                        <div class="code-line indent2"><span class="var">self</span><span class="punc">.</span><span class="prop">cgpa</span> <span class="op">=</span> <span class="num">8.19</span></div>
-                        <div class="code-line indent2"><span class="var">self</span><span class="punc">.</span><span class="prop">passion</span> <span class="op">=</span> <span class="str">"AI for good"</span></div>
-                        <div class="code-line"></div>
-                        <div class="code-line indent"><span class="fn">def</span> <span class="method">build</span><span class="punc">(</span><span class="var">self</span><span class="punc">, </span><span class="var">idea</span><span class="punc">):</span></div>
-                        <div class="code-line indent2"><span class="kw">return</span> <span class="cls">Intelligence</span><span class="punc">(</span><span class="var">idea</span><span class="punc">)</span><span class="cursor-blink">|</span></div>
+<span class="cl"><span class="kw">class</span> <span class="cl2">Madhanadeva</span><span class="pu">:</span></span>
+<span class="cl i1"><span class="kw">def</span> <span class="me">__init__</span><span class="pu">(self):</span></span>
+<span class="cl i2"><span class="va">self</span><span class="pu">.</span><span class="pr">role</span> <span class="op">=</span> <span class="pu">[</span></span>
+<span class="cl i3"><span class="st">"AI/ML Developer"</span><span class="pu">,</span></span>
+<span class="cl i3"><span class="st">"Data Analyst"</span></span>
+<span class="cl i2"><span class="pu">]</span></span>
+<span class="cl i2"><span class="va">self</span><span class="pu">.</span><span class="pr">experience</span> <span class="op">=</span> <span class="st">"Fresher"</span></span>
+<span class="cl i2"><span class="va">self</span><span class="pu">.</span><span class="pr">internships</span> <span class="op">=</span> <span class="nu">2</span></span>
+<span class="cl"></span>
+<span class="cl i1"><span class="kw">def</span> <span class="me">build</span><span class="pu">(</span><span class="va">self</span><span class="pu">,</span> <span class="va">idea</span><span class="pu">):</span></span>
+<span class="cl i2"><span class="kw">return</span> <span class="pu">f</span><span class="st">"Creating smart solutions from {idea}"</span><span class="blink">▌</span></span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="hero-scroll-hint">
-            <span>Scroll</span>
-            <div class="scroll-line"></div>
+
+        <div class="scroll-hint">
+            <span>scroll</span>
+            <div class="scroll-bar"></div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
+    <!-- ══════════ ABOUT ══════════ -->
+    <section id="about">
         <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">01 — About</span>
-                <h2 class="section-title">Crafting Intelligence,<br><em>One Model at a Time</em></h2>
+            <div class="sec-head reveal">
+                <span class="sec-label">01 — About</span>
+                <h2 class="sec-title">Crafting Intelligence,<br><em>One Model at a Time</em></h2>
             </div>
-            <div class="about-bento reveal">
-                <div class="bento-card bento-profile">
-                    <div class="profile-img-wrap">
-                        <img src="Doc/DevaAI.png" alt="Madhanadeva D" class="profile-image">
-                        <div class="profile-glow"></div>
-                    </div>
-                    <div class="profile-badge">
-                        <i class="fas fa-graduation-cap"></i>
-                        B.Tech · AI & Data Science
+            <div class="about-grid reveal">
+
+                <!-- profile card — photo only, no tag below -->
+                <div class="card profile-card">
+                    <div class="profile-ring">
+                        <img src="Doc/DevaAI.png" alt="Madhanadeva D" class="profile-img">
                     </div>
                 </div>
-                <div class="bento-card bento-bio">
+
+                <!-- bio -->
+                <div class="card bio-card">
                     <h3>Hello, I'm Madhanadeva</h3>
-                    <p>I specialize in machine learning, data analytics, and Generative AI with expertise in Python, Java, and SQL. Proficient in ML frameworks including TensorFlow, Keras, and working with LLMs, RAG systems, and LangChain to build intelligent applications.</p>
-                    <p>With internship experience at Open Weaver and a strong academic foundation from <strong>Dr. Mahalingam College of Engineering and Technology</strong> (CGPA: 8.19), I've developed skills in data visualization using Power BI and Tableau, building end-to-end ML pipelines.</p>
-                    <div class="quote-line">
+                    <p>I specialize in machine learning, data analytics, and Generative AI with expertise in Python, Java, and SQL. Proficient in TensorFlow, Keras, and working with LLMs, RAG systems, and LangChain to build intelligent applications.</p>
+                    <p>With training and internship experience in data science and AI, I've developed skills in Power BI, Tableau, and building end-to-end ML pipelines that solve real-world problems.</p>
+                    <div class="quote-strip">
                         <i class="fas fa-quote-left"></i>
                         Transforming data into insights, building the future with AI and ML.
                     </div>
                 </div>
-                <div class="bento-card bento-highlight bh-blue">
-                    <i class="fas fa-seedling bento-icon"></i>
+
+                <!-- trait cards -->
+                <div class="card trait-card tc-blue">
+                    <i class="fas fa-seedling trait-ico"></i>
                     <span>Passionate about growth</span>
                 </div>
-                <div class="bento-card bento-highlight bh-cyan">
-                    <i class="fas fa-lightbulb bento-icon"></i>
+                <div class="card trait-card tc-green">
+                    <i class="fas fa-lightbulb trait-ico"></i>
                     <span>Curious by nature</span>
                 </div>
-                <div class="bento-card bento-highlight bh-purple">
-                    <i class="fas fa-infinity bento-icon"></i>
+                <div class="card trait-card tc-purple">
+                    <i class="fas fa-infinity trait-ico"></i>
                     <span>Learning never stops</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ EDUCATION ══════════ -->
+    <section id="education" class="alt-bg">
+        <div class="container">
+            <div class="sec-head reveal">
+                <span class="sec-label">02 — Education</span>
+                <h2 class="sec-title">Academic<br><em>Background</em></h2>
+            </div>
+            <div class="edu-wrap reveal">
+                <div class="card edu-card">
+                    <div class="edu-top">
+                        <div class="edu-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="edu-meta">
+                            <h3>Bachelor of Technology</h3>
+                            <span class="edu-field">Artificial Intelligence &amp; Data Science</span>
+                            <span class="edu-college">Dr. Mahalingam College of Engineering and Technology</span>
+                        </div>
+                        <span class="edu-date">Nov 2021 – May 2025</span>
+                    </div>
+                    <p class="edu-desc">During my studies, I developed a strong foundation in Machine Learning, Data Analysis, and Database Management. I worked on real-world projects, gaining hands-on experience. I also strengthened my soft skills including communication, teamwork, problem-solving, and time management.</p>
+                    <div class="edu-pills">
+                        <span class="pill p-accent">🤖 Machine Learning</span>
+                        <span class="pill p-accent">🧠 Artificial Intelligence</span>
+                        <span class="pill p-accent">📊 Data Science</span>
+                        <span class="pill p-accent">🗄️ Database</span>
+                        <span class="pill p-accent">🌐 Web Development</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
+    <!-- ══════════ PROJECTS ══════════ -->
+    <section id="projects">
         <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">02 — Projects</span>
-                <h2 class="section-title">Selected Work &amp;<br><em>Experiments</em></h2>
+            <div class="sec-head reveal">
+                <span class="sec-label">03 — Projects</span>
+                <h2 class="sec-title">Selected Work &amp;<br><em>Experiments</em></h2>
             </div>
-            <div class="projects-grid reveal">
+            <div class="proj-grid reveal">
 
-                <div class="project-card">
-                    <div class="pc-accent"></div>
-                    <div class="pc-top">
-                        <div class="pc-icon icon-cyan"><i class="fas fa-robot"></i></div>
-                        <a href="https://github.com/Madhanadeva-D/Ask-DeX-AI-ChatBot" target="_blank" class="pc-github"><i class="fab fa-github"></i></a>
+                <div class="pcard">
+                    <div class="pcard-top">
+                        <div class="pico ico-cyan"><i class="fas fa-robot"></i></div>
+                        <a href="https://github.com/Madhanadeva-D/Ask-DeX-AI-ChatBot" target="_blank" class="gh-btn"><i class="fab fa-github"></i></a>
                     </div>
                     <h3>Ask DeX — AI ChatBot</h3>
                     <p>An intelligent conversational AI chatbot powered by LLMs and LangChain, capable of answering queries with contextual understanding and multi-turn dialogue.</p>
-                    <div class="tech-tags">
-                        <span>Python</span><span>LLM</span><span>LangChain</span><span>Streamlit</span>
-                    </div>
+                    <div class="pills proj-pills"><span class="pill p-accent">🐍 Python</span><span class="pill p-accent">🤖 LLM</span><span class="pill p-accent">🚀 Streamlit</span></div>
+                    <div class="pcard-bar"></div>
                 </div>
 
-                <div class="project-card">
-                    <div class="pc-accent"></div>
-                    <div class="pc-top">
-                        <div class="pc-icon icon-purple"><i class="fas fa-file-alt"></i></div>
-                        <a href="https://github.com/Madhanadeva-D/Multimodal-Text-Extraction-Contextual-QA" target="_blank" class="pc-github"><i class="fab fa-github"></i></a>
+                <div class="pcard">
+                    <div class="pcard-top">
+                        <div class="pico ico-purple"><i class="fas fa-file-alt"></i></div>
+                        <a href="https://github.com/Madhanadeva-D/Multimodal-Text-Extraction-Contextual-QA" target="_blank" class="gh-btn"><i class="fab fa-github"></i></a>
                     </div>
-                    <h3>Multimodal Text Extraction &amp; QA System</h3>
+                    <h3>Multimodal Text Extraction &amp; QA</h3>
                     <p>RAG system extracting and querying text from PDFs, images, and URLs with OCR, web scraping, and LLM-powered contextual answers.</p>
-                    <div class="tech-tags">
-                        <span>Python</span><span>LLM</span><span>RAG</span><span>Mixtral</span><span>FastAPI</span>
-                    </div>
+                    <div class="pills proj-pills"><span class="pill p-accent">🐍 Python</span><span class="pill p-accent">🤖 LLM</span><span class="pill p-accent">🔍 RAG</span><span class="pill p-accent">⚡ FastAPI</span><span class="pill p-accent">🚀 Streamlit</span></div>
+                    <div class="pcard-bar"></div>
                 </div>
 
-                <div class="project-card">
-                    <div class="pc-accent"></div>
-                    <div class="pc-top">
-                        <div class="pc-icon icon-orange"><i class="fas fa-chart-bar"></i></div>
-                        <a href="https://github.com/Madhanadeva-D/F1-2025-Season-Performance-Analytics" target="_blank" class="pc-github"><i class="fab fa-github"></i></a>
+                <div class="pcard">
+                    <div class="pcard-top">
+                        <div class="pico ico-green"><i class="fas fa-leaf"></i></div>
+                        <a href="https://github.com/Madhanadeva-D/CO2-Emission-Prediction-and-Analysis" target="_blank" class="gh-btn"><i class="fab fa-github"></i></a>
                     </div>
-                    <h3>F1 2025 Season Performance Analytics</h3>
-                    <p>Python analytics pipeline processing Formula 1 datasets with EDA, visualizing driver and constructor performance trends across 24 circuits.</p>
-                    <div class="tech-tags">
-                        <span>Python</span><span>Pandas</span><span>Matplotlib</span><span>Seaborn</span>
-                    </div>
+                    <h3>Carbon Emission Prediction</h3>
+                    <p>Gradient Boosting model predicting vehicle CO2 emissions with <strong>92% accuracy</strong>, featuring an interactive Streamlit app for real-time prediction.</p>
+                    <div class="pills proj-pills"><span class="pill p-accent">🐍 Python</span><span class="pill p-accent">🐼 Pandas</span><span class="pill p-accent">📉 Matplotlib</span><span class="pill p-accent">🚀 Streamlit</span></div>
+                    <div class="pcard-bar"></div>
                 </div>
 
-                <div class="project-card">
-                    <div class="pc-accent"></div>
-                    <div class="pc-top">
-                        <div class="pc-icon icon-cyan"><i class="fas fa-table"></i></div>
-                        <a href="https://github.com/Madhanadeva-D/Tableau-EV-Vehicle-Analysis" target="_blank" class="pc-github"><i class="fab fa-github"></i></a>
+                <div class="pcard">
+                    <div class="pcard-top">
+                        <div class="pico ico-pink"><i class="fas fa-image"></i></div>
+                        <a href="https://github.com/Madhanadeva-D/Deep-Fake-Img-Detection" target="_blank" class="gh-btn"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h3>Deep Fake Image Detection</h3>
+                    <p>Deep fake image detection deployed in Streamlit, offering an interactive tool to identify and analyze manipulated images using deep learning.</p>
+                    <div class="pills proj-pills"><span class="pill p-accent">🐍 Python</span><span class="pill p-accent">🔥 TensorFlow</span><span class="pill p-accent">🔥 Keras</span><span class="pill p-accent">🚀 Streamlit</span></div>
+                    <div class="pcard-bar"></div>
+                </div>
+
+                <div class="pcard">
+                    <div class="pcard-top">
+                        <div class="pico ico-blue"><i class="fas fa-microphone-slash"></i></div>
+                        <a href="https://github.com/Madhanadeva-D/Audio-DeepFake-Detection-and-Analysis" target="_blank" class="gh-btn"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h3>Audio DeepFake Detection</h3>
+                    <p>Deep learning system detecting synthetic audio by identifying unique speech patterns and anomalies using spectrogram analysis.</p>
+                    <div class="pills proj-pills"><span class="pill p-accent">🐍 Python</span><span class="pill p-accent">🔥 TensorFlow</span><span class="pill p-accent">🔥 Keras</span><span class="pill p-accent">🎵 Librosa</span><span class="pill p-accent">🚀 Streamlit</span></div>
+                    <div class="pcard-bar"></div>
+                </div>
+
+                <div class="pcard">
+                    <div class="pcard-top">
+                        <div class="pico ico-cyan"><i class="fas fa-table"></i></div>
+                        <a href="https://github.com/Madhanadeva-D/Tableau-EV-Vehicle-Analysis" target="_blank" class="gh-btn"><i class="fab fa-github"></i></a>
                     </div>
                     <h3>Tableau — EV Vehicle Analysis</h3>
                     <p>Interactive Tableau dashboard analyzing electric vehicle adoption trends, range statistics, and manufacturer comparisons across regions with dynamic filters.</p>
-                    <div class="tech-tags">
-                        <span>Tableau</span><span>Data Analysis</span><span>EV Data</span>
-                    </div>
+                    <div class="pills proj-pills"><span class="pill p-accent">📈 Tableau</span><span class="pill p-accent">📊 Data Analysis</span><span class="pill p-accent">📉 Visualization</span></div>
+                    <div class="pcard-bar"></div>
                 </div>
 
-                <div class="project-card">
-                    <div class="pc-accent"></div>
-                    <div class="pc-top">
-                        <div class="pc-icon icon-green"><i class="fas fa-chart-pie"></i></div>
-                        <a href="https://github.com/Madhanadeva-D/Power-BI-Sales-Analysis" target="_blank" class="pc-github"><i class="fab fa-github"></i></a>
+                <div class="pcard">
+                    <div class="pcard-top">
+                        <div class="pico ico-orange"><i class="fas fa-chart-pie"></i></div>
+                        <a href="https://github.com/Madhanadeva-D/Power-BI-Sales-Analysis" target="_blank" class="gh-btn"><i class="fab fa-github"></i></a>
                     </div>
                     <h3>Power BI — Sales Analysis</h3>
                     <p>Comprehensive Power BI sales dashboard with KPIs, regional breakdowns, product performance metrics, and trend forecasting for business decision-making.</p>
-                    <div class="tech-tags">
-                        <span>Power BI</span><span>DAX</span><span>Data Modeling</span>
-                    </div>
+                    <div class="pills proj-pills"><span class="pill p-accent">📊 Power BI</span><span class="pill p-accent">⚙️ DAX</span><span class="pill p-accent">☁️ BI Service</span></div>
+                    <div class="pcard-bar"></div>
                 </div>
 
-                <div class="project-card">
-                    <div class="pc-accent"></div>
-                    <div class="pc-top">
-                        <div class="pc-icon icon-orange"><i class="fas fa-globe"></i></div>
-                        <a href="https://github.com/Madhanadeva-D/PowerBI-Global-SuperStore-Analysis" target="_blank" class="pc-github"><i class="fab fa-github"></i></a>
+                <div class="pcard">
+                    <div class="pcard-top">
+                        <div class="pico ico-orange"><i class="fas fa-globe"></i></div>
+                        <a href="https://github.com/Madhanadeva-D/PowerBI-Global-SuperStore-Analysis" target="_blank" class="gh-btn"><i class="fab fa-github"></i></a>
                     </div>
-                    <h3>Global Superstore Analysis Dashboard</h3>
+                    <h3>Power BI — Global Superstore</h3>
                     <p>Interactive Power BI dashboard visualizing sales, profit, and customer trends for a global retail dataset, enabling data-driven decision-making at a glance.</p>
-                    <div class="tech-tags">
-                        <span>Power BI</span><span>DAX</span><span>Data Modeling</span>
-                    </div>
+                    <div class="pills proj-pills"><span class="pill p-accent">📊 Power BI</span><span class="pill p-accent">⚙️ DAX</span><span class="pill p-accent">☁️ BI Service</span></div>
+                    <div class="pcard-bar"></div>
                 </div>
 
-                <div class="project-card">
-                    <div class="pc-accent"></div>
-                    <div class="pc-top">
-                        <div class="pc-icon icon-blue"><i class="fas fa-microphone-slash"></i></div>
-                        <a href="https://github.com/Madhanadeva-D/Audio-DeepFake-Detection-and-Analysis" target="_blank" class="pc-github"><i class="fab fa-github"></i></a>
+                <div class="pcard">
+                    <div class="pcard-top">
+                        <div class="pico ico-cyan"><i class="fas fa-trophy"></i></div>
+                        <a href="https://github.com/Madhanadeva-D/T20-WorldCup-2025-Analysis" target="_blank" class="gh-btn"><i class="fab fa-github"></i></a>
                     </div>
-                    <h3>Audio DeepFake Detection &amp; Analysis</h3>
-                    <p>Deep learning-based system to detect synthetic audio by identifying unique speech patterns and anomalies using spectrogram analysis.</p>
-                    <div class="tech-tags">
-                        <span>TensorFlow</span><span>Keras</span><span>Librosa</span><span>Streamlit</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="pc-accent"></div>
-                    <div class="pc-top">
-                        <div class="pc-icon icon-green"><i class="fas fa-leaf"></i></div>
-                        <a href="https://github.com/Madhanadeva-D/CO2-Emission-Prediction-and-Analysis" target="_blank" class="pc-github"><i class="fab fa-github"></i></a>
-                    </div>
-                    <h3>Carbon Emission Prediction &amp; Analysis</h3>
-                    <p>Gradient Boosting model predicting vehicle CO2 emissions with <strong>92% accuracy</strong>, featuring an interactive Streamlit app for real-time prediction.</p>
-                    <div class="tech-tags">
-                        <span>Python</span><span>Pandas</span><span>Matplotlib</span><span>Streamlit</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="pc-accent"></div>
-                    <div class="pc-top">
-                        <div class="pc-icon icon-pink"><i class="fas fa-image"></i></div>
-                        <a href="https://github.com/Madhanadeva-D/Deep-Fake-Img-Detection" target="_blank" class="pc-github"><i class="fab fa-github"></i></a>
-                    </div>
-                    <h3>Image Authenticity Verification</h3>
-                    <p>Deep fake image detection deployed in Streamlit, offering an interactive tool to identify and analyze manipulated images using deep learning.</p>
-                    <div class="tech-tags">
-                        <span>TensorFlow</span><span>Keras</span><span>Pandas</span><span>Streamlit</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="pc-accent"></div>
-                    <div class="pc-top">
-                        <div class="pc-icon icon-cyan"><i class="fas fa-trophy"></i></div>
-                        <a href="https://github.com/Madhanadeva-D/T20-WorldCup-2025-Analysis" target="_blank" class="pc-github"><i class="fab fa-github"></i></a>
-                    </div>
-                    <h3>T20I Cricket Analysis — ICC World Cup</h3>
+                    <h3>T20I Cricket — ICC World Cup</h3>
                     <p>Detailed data analysis of ICC Men's T20 World Cup statistics. Venue trends, toss impact, team performance, and player insights with rich visualizations.</p>
-                    <div class="tech-tags">
-                        <span>Python</span><span>Pandas</span><span>Matplotlib</span><span>Seaborn</span>
+                    <div class="pills proj-pills"><span class="pill p-accent">🐍 Python</span><span class="pill p-accent">🐼 Pandas</span><span class="pill p-accent">📉 Matplotlib</span><span class="pill p-accent">🌊 Seaborn</span></div>
+                    <div class="pcard-bar"></div>
+                </div>
+
+                <div class="pcard">
+                    <div class="pcard-top">
+                        <div class="pico ico-orange"><i class="fas fa-chart-bar"></i></div>
+                        <a href="https://github.com/Madhanadeva-D/F1-2025-Season-Performance-Analytics" target="_blank" class="gh-btn"><i class="fab fa-github"></i></a>
                     </div>
+                    <h3>F1 2025 — Season Analytics</h3>
+                    <p>Python analytics pipeline processing Formula 1 datasets with EDA, visualizing driver and constructor performance trends across 24 circuits.</p>
+                    <div class="pills proj-pills"><span class="pill p-accent">🐍 Python</span><span class="pill p-accent">🐼 Pandas</span><span class="pill p-accent">📉 Matplotlib</span><span class="pill p-accent">🌊 Seaborn</span></div>
+                    <div class="pcard-bar"></div>
+                </div>
+
+                <div class="pcard">
+                    <div class="pcard-top">
+                        <div class="pico ico-green"><i class="fab fa-google-drive"></i></div>
+                        <a href="https://github.com/Madhanadeva-D/Torrent-To-Google-Drive" target="_blank" class="gh-btn"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h3>Torrent To Google Drive Uploader</h3>
+                    <p>Downloads torrent files and magnet links directly to Google Drive via Google Colab. Uses libtorrent for session management with real-time progress monitoring via interactive widgets.</p>
+                    <div class="pills proj-pills"><span class="pill p-accent">🐍 Python</span><span class="pill p-accent">⬇️ libtorrent</span><span class="pill p-accent">📓 Google Colab</span></div>
+                    <div class="pcard-bar"></div>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section class="experience" id="experience">
+    <!-- ══════════ EXPERIENCE ══════════ -->
+    <section id="experience">
         <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">03 — Experience</span>
-                <h2 class="section-title">Professional<br><em>Journey</em></h2>
+            <div class="sec-head reveal">
+                <span class="sec-label">04 — Experience</span>
+                <h2 class="sec-title">Professional<br><em>Journey</em></h2>
             </div>
             <div class="timeline reveal">
-                <div class="timeline-track"></div>
-                <div class="timeline-item">
-                    <div class="tl-dot">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <div class="tl-content">
-                        <div class="tl-header">
+                <div class="tl-line"></div>
+
+                <!-- NEW: Data Science Trainee -->
+                <div class="tl-item">
+                    <div class="tl-dot tl-new"><i class="fas fa-chart-line"></i></div>
+                    <div class="card tl-card">
+                        <div class="tl-head">
                             <div>
-                                <h3>Software Development Intern</h3>
-                                <span class="tl-company">Open Weaver <span class="tl-remote">· Remote</span></span>
+                                <h3>Data Science Trainee</h3>
+                                <span class="tl-org">Besant Technology <span class="tl-loc">· Chennai, Tamil Nadu · Oct 2025 – Present</span></span>
+                            </div>
+                            <span class="tl-date tl-active">● Active</span>
+                        </div>
+                        <p>Worked with Python, SQL, Excel, Power BI, and Tableau for data analysis and visualization. Applied basic Machine Learning and Data Science techniques for data preprocessing, analysis, and building simple predictive models. Created interactive Power BI dashboards using Power Query and DAX, and developed KPI reports for better data insights.</p>
+                        <div class="pills tl-pills">
+                            <span class="pill p-accent">🐍 Python</span>
+                            <span class="pill p-accent">🗄️ SQL</span>
+                            <span class="pill p-accent">📊 Power BI</span>
+                            <span class="pill p-accent">🤖 Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intern (renamed from Software Development Intern) -->
+                <div class="tl-item">
+                    <div class="tl-dot"><i class="fas fa-briefcase"></i></div>
+                    <div class="card tl-card">
+                        <div class="tl-head">
+                            <div>
+                                <h3>Intern</h3>
+                                <span class="tl-org">Open Weaver <span class="tl-loc">· Remote</span></span>
                             </div>
                             <span class="tl-date">Jun – Jul 2023</span>
                         </div>
-                        <p>Worked on customizing and optimizing responsive web applications to ensure usability across desktop and mobile platforms. Collaborated with a 3-member team to enhance existing applications and deploy 3 projects using pre-built libraries from the Kendo platform. Adapted and configured Machine Learning and Deep Learning code from multiple repositories. Optimized frontend configurations for 5 applications and contributed to on-time project delivery.</p>
-                        <div class="tl-tags">
-                            <span>Web Development</span>
-                            <span>Machine Learning</span>
-                            <span>Responsive Design</span>
-                            <span>Team Collaboration</span>
+                        <p>Customized and optimized responsive web applications ensuring cross-device usability. Collaborated with a 3-member team to deploy 3 projects using Kendo platform libraries. Adapted ML and Deep Learning code from multiple repositories and optimized frontend configurations for 5 applications.</p>
+                        <div class="pills tl-pills">
+                            <span class="pill p-accent">🌐 Web Development</span>
+                            <span class="pill p-accent">🤖 Machine Learning</span>
+                            <span class="pill p-accent">🥽 Virtual Reality</span>
+                            <span class="pill p-accent">🤝 Team Collaboration</span>
                         </div>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="tl-dot tl-dot-edu">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="tl-content">
-                        <div class="tl-header">
-                            <div>
-                                <h3>B.Tech — AI &amp; Data Science</h3>
-                                <span class="tl-company">Dr. Mahalingam College of Engineering &amp; Technology <span class="tl-remote">· Pollachi</span></span>
-                            </div>
-                            <span class="tl-date">2021 – 2025</span>
-                        </div>
-                        <p>Specialized degree in Artificial Intelligence and Data Science with a strong academic record. Developed expertise across the full AI stack — from classical ML algorithms to modern deep learning architectures, LLMs, RAG systems, and data visualization tools.</p>
-                        <div class="tl-tags">
-                            <span>CGPA: 8.19</span>
-                            <span>Machine Learning</span>
-                            <span>Deep Learning</span>
-                            <span>Data Science</span>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Tech Stack Section -->
-    <section class="tech" id="tech">
+    <!-- ══════════ TECH STACK ══════════ -->
+    <section id="tech" class="alt-bg">
         <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">04 — Tech Stack</span>
-                <h2 class="section-title">Tools I Build<br><em>Intelligent Systems With</em></h2>
+            <div class="sec-head reveal">
+                <span class="sec-label">05 — Tech Stack</span>
+                <h2 class="sec-title">Tools I Build<br><em>Intelligent Systems With</em></h2>
             </div>
-            <div class="tech-bento reveal">
-                <div class="tech-category-card">
-                    <div class="tc-header">
-                        <i class="fas fa-code"></i>
-                        <h3>Languages</h3>
+            <div class="stack-grid reveal">
+
+                <div class="card stack-card">
+                    <div class="stack-head">
+                        <i class="fas fa-code"></i><h3>Languages</h3>
                     </div>
-                    <div class="tc-pills">
-                        <span class="pill pill-primary"><span>🐍</span> Python</span>
-                        <span class="pill"><span>☕</span> Java</span>
-                        <span class="pill"><span>🗄️</span> SQL</span>
-                    </div>
-                </div>
-                <div class="tech-category-card">
-                    <div class="tc-header">
-                        <i class="fas fa-brain"></i>
-                        <h3>Machine Learning</h3>
-                    </div>
-                    <div class="tc-pills">
-                        <span class="pill pill-primary"><span>🐼</span> Pandas</span>
-                        <span class="pill pill-primary"><span>🔢</span> NumPy</span>
-                        <span class="pill pill-primary"><span>🤖</span> Scikit-learn</span>
-                        <span class="pill"><span>📉</span> Matplotlib</span>
-                        <span class="pill"><span>🌊</span> Seaborn</span>
+                    <div class="pills">
+                        <span class="pill p-accent">🐍 Python</span>
+                        <span class="pill p-accent">☕ Java</span>
+                        <span class="pill p-accent">🗄️ SQL</span>
                     </div>
                 </div>
-                <div class="tech-category-card">
-                    <div class="tc-header">
-                        <i class="fas fa-robot"></i>
-                        <h3>AI Technologies</h3>
+
+                <!-- renamed Machine Learning → ML & DL, added TensorFlow + Keras, removed from AI section -->
+                <div class="card stack-card">
+                    <div class="stack-head">
+                        <i class="fas fa-brain"></i><h3>ML &amp; DL</h3>
                     </div>
-                    <div class="tc-pills">
-                        <span class="pill pill-primary"><span>🧠</span> NLP</span>
-                        <span class="pill pill-primary"><span>🤖</span> LLM</span>
-                        <span class="pill pill-primary"><span>🔍</span> RAG</span>
-                        <span class="pill pill-primary"><span>⛓️</span> LangChain</span>
-                        <span class="pill"><span>🔥</span> TensorFlow</span>
-                        <span class="pill"><span>🔥</span> Keras</span>
-                    </div>
-                </div>
-                <div class="tech-category-card">
-                    <div class="tc-header">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>Data Analysis</h3>
-                    </div>
-                    <div class="tc-pills">
-                        <span class="pill pill-cyan"><span>📊</span> Power BI</span>
-                        <span class="pill pill-cyan"><span>📈</span> Tableau</span>
+                    <div class="pills">
+                        <span class="pill p-accent">🐼 Pandas</span>
+                        <span class="pill p-accent">🔢 NumPy</span>
+                        <span class="pill p-accent">🤖 Scikit-learn</span>
+                        <span class="pill p-accent">📉 Matplotlib</span>
+                        <span class="pill p-accent">🌊 Seaborn</span>
+                        <span class="pill p-accent">🔥 TensorFlow</span>
+                        <span class="pill p-accent">🔥 Keras</span>
                     </div>
                 </div>
-                <div class="tech-category-card tc-full">
-                    <div class="tc-header">
-                        <i class="fas fa-tools"></i>
-                        <h3>Tools &amp; Platforms</h3>
+
+                <!-- AI Technologies — TensorFlow & Keras removed -->
+                <div class="card stack-card">
+                    <div class="stack-head">
+                        <i class="fas fa-robot"></i><h3>AI Technologies</h3>
                     </div>
-                    <div class="tc-pills">
-                        <span class="pill"><span>🗄️</span> MySQL</span>
-                        <span class="pill"><span>💻</span> VS Code</span>
-                        <span class="pill"><span>🌿</span> Git</span>
-                        <span class="pill"><span>🐙</span> GitHub</span>
-                        <span class="pill pill-primary"><span>🚀</span> Streamlit</span>
-                        <span class="pill"><span>⚡</span> FastAPI</span>
+                    <div class="pills">
+                        <span class="pill p-accent">🧠 NLP</span>
+                        <span class="pill p-accent">🤖 LLM</span>
+                        <span class="pill p-accent">🔍 RAG</span>
+                        <span class="pill p-accent">⛓️ LangChain</span>
                     </div>
                 </div>
+
+                <div class="card stack-card">
+                    <div class="stack-head">
+                        <i class="fas fa-chart-bar"></i><h3>Data Analysis</h3>
+                    </div>
+                    <div class="pills">
+                        <span class="pill p-cyan">📊 Power BI</span>
+                        <span class="pill p-cyan">📈 Tableau</span>
+                    </div>
+                </div>
+
+                <div class="card stack-card stack-wide">
+                    <div class="stack-head">
+                        <i class="fas fa-tools"></i><h3>Tools &amp; Platforms</h3>
+                    </div>
+                    <div class="pills">
+                        <span class="pill p-accent">🗄️ MySQL</span>
+                        <span class="pill p-accent">💻 VS Code</span>
+                        <span class="pill p-accent">🌿 Git</span>
+                        <span class="pill p-accent">🐙 GitHub</span>
+                        <span class="pill p-accent">🚀 Streamlit</span>
+                        <span class="pill p-accent">⚡ FastAPI</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <!-- ══════════ CONTACT ══════════ -->
+    <section id="contact">
         <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">05 — Contact</span>
-                <h2 class="section-title">Let's Build<br><em>Something Together</em></h2>
+            <div class="sec-head reveal">
+                <span class="sec-label">06 — Contact</span>
+                <h2 class="sec-title">Let's Connect and<br><em>Build Together</em></h2>
             </div>
-            <div class="contact-layout reveal">
+            <div class="contact-wrap reveal">
                 <div class="contact-left">
-                    <p class="contact-intro">Have an interesting project, collaboration, or opportunity? I'd love to hear from you. Drop a message and I'll get back to you soon.</p>
-                    <div class="contact-links">
-                        <a href="mailto:madhanadeva2683@gmail.com" class="contact-link">
-                            <div class="cl-icon icon-email"><i class="fas fa-envelope"></i></div>
-                            <div class="cl-text">
-                                <span class="cl-label">Email</span>
-                                <span class="cl-val">madhanadeva2683@gmail.com</span>
+                    <p class="contact-intro">Have a project, collaboration, or opportunity? I'd love to hear from you.</p>
+                    <div class="clinks">
+                        <a href="/cdn-cgi/l/email-protection#5b363a3f333a353a3f3e2d3a696d63681b3c363a323775383436" class="clink">
+                            <div class="clink-ico ico-email"><i class="fas fa-envelope"></i></div>
+                            <div class="clink-txt">
+                                <span class="clink-label">Email</span>
+                                <span class="clink-val"><span class="__cf_email__" data-cfemail="056864616d646b646160736437333d36456268646c692b666a68">[email&#160;protected]</span></span>
                             </div>
-                            <i class="fas fa-arrow-up-right cl-arrow"></i>
+                            <i class="fas fa-arrow-up-right clink-arrow"></i>
                         </a>
-                        <a href="tel:+919025703517" class="contact-link">
-                            <div class="cl-icon icon-phone"><i class="fas fa-phone"></i></div>
-                            <div class="cl-text">
-                                <span class="cl-label">Phone</span>
-                                <span class="cl-val">+91 9025703517</span>
+                        <a href="tel:+919025703517" class="clink">
+                            <div class="clink-ico ico-phone"><i class="fas fa-phone"></i></div>
+                            <div class="clink-txt">
+                                <span class="clink-label">Phone</span>
+                                <span class="clink-val">+91 9025703517</span>
                             </div>
-                            <i class="fas fa-arrow-up-right cl-arrow"></i>
+                            <i class="fas fa-arrow-up-right clink-arrow"></i>
                         </a>
-                        <a href="https://github.com/Madhanadeva-D" target="_blank" class="contact-link">
-                            <div class="cl-icon icon-github"><i class="fab fa-github"></i></div>
-                            <div class="cl-text">
-                                <span class="cl-label">GitHub</span>
-                                <span class="cl-val">Explore My Code</span>
+                        <a href="https://github.com/Madhanadeva-D" target="_blank" class="clink">
+                            <div class="clink-ico ico-github"><i class="fab fa-github"></i></div>
+                            <div class="clink-txt">
+                                <span class="clink-label">GitHub</span>
+                                <span class="clink-val">Explore My Code</span>
                             </div>
-                            <i class="fas fa-arrow-up-right cl-arrow"></i>
+                            <i class="fas fa-arrow-up-right clink-arrow"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/madhanadeva-d-0a6347226/" target="_blank" class="contact-link">
-                            <div class="cl-icon icon-linkedin"><i class="fab fa-linkedin"></i></div>
-                            <div class="cl-text">
-                                <span class="cl-label">LinkedIn</span>
-                                <span class="cl-val">Connect on LinkedIn</span>
+                        <a href="https://www.linkedin.com/in/madhanadeva-d-0a6347226/" target="_blank" class="clink">
+                            <div class="clink-ico ico-linkedin"><i class="fab fa-linkedin"></i></div>
+                            <div class="clink-txt">
+                                <span class="clink-label">LinkedIn</span>
+                                <span class="clink-val">Connect on LinkedIn</span>
                             </div>
-                            <i class="fas fa-arrow-up-right cl-arrow"></i>
+                            <i class="fas fa-arrow-up-right clink-arrow"></i>
                         </a>
                     </div>
                 </div>
+
                 <div class="contact-right">
-                    <form id="contactForm" class="contact-form" action="https://formsubmit.co/madhanadeva2683@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="New Portfolio Contact Message">
+                    <form id="contactForm" class="card contact-form" action="https://formsubmit.co/madhanadeva2683@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="New Portfolio Contact">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_template" value="table">
-                        <div class="form-group">
-                            <label class="form-label">Your Name</label>
-                            <input type="text" name="name" class="form-input" placeholder="John Doe" required>
+                        <div class="fg">
+                            <label class="flabel">Your Name</label>
+                            <input type="text" name="name" class="finput" placeholder="John Doe" required>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Email Address</label>
-                            <input type="email" name="email" class="form-input" placeholder="john@example.com" required>
+                        <div class="fg">
+                            <label class="flabel">Email Address</label>
+                            <input type="email" name="email" class="finput" placeholder="john@example.com" required>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Message</label>
-                            <textarea name="message" class="form-textarea" placeholder="Tell me about your project..." required></textarea>
+                        <div class="fg fg-grow">
+                            <label class="flabel">Message</label>
+                            <textarea name="message" class="ftextarea" placeholder="Tell me about your project..." required></textarea>
                         </div>
                         <button type="submit" class="submit-btn" id="submitBtn">
                             <span class="btn-text">Send Message</span>
@@ -482,17 +529,17 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer — no social icons -->
     <footer>
         <div class="container">
-            <div class="footer-inner">
-                <div class="footer-logo">[MD]</div>
-                <p class="footer-copy">&copy; 2025 Madhanadeva D. Built with <span class="grad-text">AI &amp; Passion</span></p>
+            <div class="footer-row">
+                <span class="footer-logo">[MD]</span>
+                <p>&copy; 2025 Madhanadeva D. Built with <span class="gt">AI &amp; Passion</span></p>
             </div>
         </div>
     </footer>
 
-    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <button class="scroll-top" id="scrollTop" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
