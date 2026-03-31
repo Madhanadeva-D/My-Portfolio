@@ -111,7 +111,7 @@ body {
     padding: 0 clamp(16px,5vw,64px);
     display: grid;
     grid-template-columns: 55% 45%;
-    gap: clamp(1rem,3vw,3rem);
+    gap: clamp(1rem,2vw,2rem);
     align-items: center;
 }
 
@@ -134,18 +134,21 @@ body {
 }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.55;transform:scale(.8)} }
 
-/* ─ HERO NAME: always ONE line, sized relative to left column ─ */
+/* ─ HERO NAME: scales to fit left column at all sizes ─ */
 .hero-name {
     font-family: var(--fd);
     font-weight: 800;
-    /* 55% col - padding ≈ 48vw usable. Name ~13 chars → font ≈ 48/8.5 ≈ 5.6vw */
-    font-size: clamp(.85rem, 5.5vw, 3.2rem);
+    /* Column is ~55% of viewport (max 1200px). 
+       "MADHANADEVA D" = 13 chars. Use 3.5vw = ~42px/char at 1200px → 546px total ✓ */
+    font-size: clamp(1rem, 3.1vw, 2.4rem);
     line-height: 1.05;
-    letter-spacing: -.03em;
+    letter-spacing: -.02em;
     color: var(--t1);
     margin-bottom: 1rem;
     white-space: nowrap;
-    overflow: visible;
+    overflow: hidden;
+    text-overflow: clip;
+    max-width: 100%;
 }
 
 .name-d {
@@ -207,15 +210,18 @@ body {
     border: 1px solid rgba(0,212,255,.2);
     border-radius: 10px;
     overflow: hidden;
-    min-width: 160px;
+    min-width: 180px;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-6px);
     transition: opacity .25s, transform .25s, visibility .25s;
-    z-index: 100;
+    z-index: 200;
     box-shadow: 0 12px 36px rgba(0,0,0,.5);
 }
 .cv-btn-wrap:hover .cv-dropdown {
+    /* hover removed — click-only via JS */
+}
+.cv-dropdown.open {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -233,7 +239,7 @@ body {
 .cv-option i { font-size: .9rem; width: 16px; text-align: center; color: var(--ac); }
 
 /* code window */
-.hero-right { width: 100%; min-width: 0; }
+.hero-right { width: 100%; min-width: 0; margin-left: auto; }
 .code-win {
     background: #070c1a;
     border: 1px solid rgba(0,212,255,.15);
@@ -667,17 +673,14 @@ footer p { font-size: .82rem; color: var(--t3); }
     .stack-wide { grid-column: span 2; }
 }
 
-/* ≤1024px tablet / small laptop */
+/* ≤1024px tablet / small laptop — hero stays side-by-side until 768 */
 @media (max-width: 1024px) {
-    /* hero stacks vertically */
-    .hero-wrap { grid-template-columns: 1fr; max-width: 620px; text-align: center; }
-    .hero-left  { align-items: center; }
-    .hero-desc  { max-width: 100%; }
-    .hero-btns  { justify-content: center; }
-    /* still allow name on one line at tablet sizes */
-    /* hero is full-width 1-col at tablet — name can use more vw */
-    .hero-name  { font-size: clamp(.85rem, 7vw, 3rem); white-space: nowrap; overflow: visible; }
-    .hero-right { max-width: 540px; margin: 0 auto; }
+    /* keep 2-col hero but shift more space to left */
+    .hero-wrap { grid-template-columns: 52% 48%; gap: 1.5rem; }
+    /* name still one line — 58% of viewport */
+    .hero-name { font-size: clamp(1.2rem, 3.8vw, 2.6rem); white-space: nowrap; }
+
+    .hero-right { width: 100%; }
 
     /* about: profile top full-width, bio full-width, traits in row */
     .about-grid { grid-template-columns: 1fr 1fr 1fr; }
@@ -688,7 +691,7 @@ footer p { font-size: .82rem; color: var(--t3); }
     .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
 }
 
-/* ≤768px mobile */
+/* ≤768px mobile — hero stacks, name fills full width */
 @media (max-width: 768px) {
     .nav-links {
         display: none; position: absolute; top: 100%; left: 0;
@@ -703,8 +706,21 @@ footer p { font-size: .82rem; color: var(--t3); }
     section { padding: 80px 0; }
     .hero   { padding: 76px 0 55px; }
 
-    /* name can take two lines on narrow mobile */
-    .hero-name { white-space: nowrap; font-size: clamp(.8rem, 7.5vw, 2.2rem); overflow: visible; }
+    /* hero stacks vertically, centered */
+    .hero-wrap  { grid-template-columns: 1fr; text-align: center; max-width: 540px; }
+    .hero-left  { align-items: center; }
+    .hero-desc  { max-width: 100%; }
+    .hero-btns  { justify-content: center; }
+    .hero-right { max-width: 100%; margin: 0 auto; width: 100%; }
+
+    /* name always one line — full viewport width now */
+    .hero-name {
+        font-size: clamp(1.2rem, 6.5vw, 2.8rem);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        width: 100%;
+    }
 
     .about-grid { grid-template-columns: 1fr 1fr; }
     .profile-card { grid-column: span 2; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
@@ -716,15 +732,54 @@ footer p { font-size: .82rem; color: var(--t3); }
 
     .tl-head { flex-direction: column; gap: .35rem; }
     .footer-row { flex-direction: column; }
+
+    /* Mobile dropdown: opens downward, floats above everything */
+    .cv-dropdown {
+        top: calc(100% + 8px);
+        bottom: auto;
+        transform: translateY(-6px);
+        z-index: 500;
+        left: 50%;
+        transform: translateX(-50%) translateY(-6px);
+        min-width: 200px;
+    }
+    .cv-dropdown.open {
+        transform: translateX(-50%) translateY(0);
+    }
 }
 
 /* ≤480px small phone */
 @media (max-width: 480px) {
-    .hero-name { font-size: clamp(.75rem, 7vw, 1.6rem); white-space: nowrap; overflow: visible; }
+    .hero-name {
+        font-size: clamp(.85rem, 5.8vw, 1.8rem);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        width: 100%;
+    }
     .about-grid { grid-template-columns: 1fr; }
     .profile-card, .bio-card { grid-column: span 1; }
     .contact-wrap { grid-template-columns: 1fr; }
     .profile-ring { width: 140px; height: 140px; }
+    .hero-btns { flex-direction: column; align-items: center; width: 100%; }
+    .hero-btns .btn, .hero-btns .cv-btn-wrap { width: 100%; justify-content: center; }
+    .cv-main-btn { width: 100%; justify-content: center; }
+    .cv-dropdown {
+        top: calc(100% + 8px);
+        bottom: auto;
+        left: 50%;
+        transform: translateX(-50%) translateY(-6px);
+        z-index: 500;
+        min-width: 200px;
+    }
+    .cv-dropdown.open {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* ≤360px very small phone */
+@media (max-width: 360px) {
+    .hero-name { font-size: clamp(.75rem, 5.2vw, 1.4rem); }
 }
 /* ── Pill spacing in projects and timeline ── */
 .proj-pills, .tl-pills { display: flex; flex-wrap: wrap; gap: .38rem; margin-top: auto; padding-top: .5rem; }

@@ -18,6 +18,29 @@ document.querySelectorAll('.nav-link').forEach(l => {
     });
 });
 
+// ── CV Dropdown (click-based) ──
+const cvMainBtn  = document.querySelector('.cv-main-btn');
+const cvDropdown = document.querySelector('.cv-dropdown');
+if (cvMainBtn && cvDropdown) {
+    cvMainBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        cvDropdown.classList.toggle('open');
+    });
+    // Close when clicking outside
+    document.addEventListener('click', () => {
+        cvDropdown.classList.remove('open');
+    });
+    cvDropdown.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+    // Close after selecting a CV option
+    cvDropdown.querySelectorAll('.cv-option').forEach(opt => {
+        opt.addEventListener('click', () => {
+            cvDropdown.classList.remove('open');
+        });
+    });
+}
+
 // ── Floating particles ──
 (function initParticles() {
     const el = document.getElementById('particles');
@@ -82,32 +105,35 @@ window.addEventListener('scroll', () => {
 topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
 // ── Contact form ──
-document.getElementById('contactForm').addEventListener('submit', e => {
-    e.preventDefault();
-    const form   = e.target;
-    const btn    = document.getElementById('submitBtn');
-    const txt    = btn.querySelector('.btn-text');
-    const ico    = btn.querySelector('.btn-icon');
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const form = e.target;
+        const btn  = document.getElementById('submitBtn');
+        const txt  = btn.querySelector('.btn-text');
+        const ico  = btn.querySelector('.btn-icon');
 
-    btn.disabled = true;
-    txt.textContent = 'Sending…';
-    ico.className   = 'fas fa-circle-notch fa-spin btn-icon';
+        btn.disabled = true;
+        txt.textContent = 'Sending…';
+        ico.className   = 'fas fa-circle-notch fa-spin btn-icon';
 
-    fetch(form.action, { method: 'POST', body: new FormData(form), mode: 'no-cors' });
+        fetch(form.action, { method: 'POST', body: new FormData(form), mode: 'no-cors' });
 
-    setTimeout(() => {
-        btn.classList.add('success');
-        txt.textContent = 'Message Sent!';
-        ico.className   = 'fas fa-check-circle btn-icon';
-        form.reset();
         setTimeout(() => {
-            btn.classList.remove('success');
-            btn.disabled    = false;
-            txt.textContent = 'Send Message';
-            ico.className   = 'fas fa-paper-plane btn-icon';
-        }, 3000);
-    }, 900);
-});
+            btn.classList.add('success');
+            txt.textContent = 'Message Sent!';
+            ico.className   = 'fas fa-check-circle btn-icon';
+            form.reset();
+            setTimeout(() => {
+                btn.classList.remove('success');
+                btn.disabled    = false;
+                txt.textContent = 'Send Message';
+                ico.className   = 'fas fa-paper-plane btn-icon';
+            }, 3000);
+        }, 900);
+    });
+}
 
 // ── Smooth anchor scroll ──
 document.querySelectorAll('a[href^="#"]').forEach(a => {
